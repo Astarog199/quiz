@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">QUIZ</string>
+    <string name="start">Registration</string>
+
+    <!--  My Strings  -->
+    <string name="HeadingReg">Welcome Onboard!!</string>
+    <string name="paragraphReg">Fill in the text fields</string>
+    <string name="titleActivitySecond">Сreating a password</string>
+
+    <!--  Input Text  -->
+    <string name="inputName">Enter your name</string>
+    <string name="inputEmail">Enter your email</string>
+    <string name="inputPassword">Enter password</string>
+
+    <!--  Button  -->
+    <string name="textButton_next">Next</string>
+    <string name="textButton_back">Back</string>
+    <string name="textForButton_registration">Registration</string>
+    <string name="titleStartActivity">A quiz is a form of game or mind sport in which players attempt to answer questions correctly on one or several specific topics. Quizzes can be used as a brief assessment in education and similar fields to measure growth in knowledge, abilities, and skills, or simply as a hobby.</string>
+    <string name="welcome_back">Welcome Back!!</string>
+    <string name="buttonAutorization">Sign in</string>
+    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign up</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="registration">Registration</string>
+    <string name="authorization">Authorization</string>
+    <string name="question_1">Зимой и летом одним цветом</string>
+
+</resources>
