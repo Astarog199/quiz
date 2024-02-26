@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">QUIZ</string>
+    <string name="start">Регистрация</string>
+
+
+    <!--  My Strings  -->
+    <string name="question1" translatable="false">Зимой и летом одним цветом</string>
+
+    <!--  Input Text  -->
+    <string name="inputName">Введите имя пользователя</string>
+    <string name="inputEmail" translatable="false">Введите свою почту</string>
+    <string name="inputPassword" translatable="false">Введите пароль</string>
+
+    <!--  Button  -->
+    <string name="HeadingReg">Добро пожаловать</string>
+    <string name="titleActivitySecond">Создание пароля</string>
+    <string name="textButton_next" translatable="false">Вперёд</string>
+    <string name="textButton_back" translatable="false">Назад</string>
+
+
+    <string name="registration">Регистрация</string>
+    <string name="titleStartActivity">Викторина — это форма игры или интеллектуального спорта, в которой игроки пытаются правильно ответить на вопросы по одной или нескольким конкретным темам.</string>
+    <string name="welcome_back">С возвращением</string>
+    <string name="authorization" translatable="false">Авторизация</string>
+    <string name="textForButton_registration">Зарегистрироваться</string>
+    <string name="forgot_password">Забыли пароль?</string>
+    <string name="paragraphReg">Заполните техтовые поля</string>
+    <string name="button_autorization">Войти</string>
+    <string name="hello_blank_fragment">Динамический бланк</string>
+    <string name="mainmenufragment">С возвращением</string>
+    <string name="main_menu">Главное меню</string>
+    <string name="children_s_quiz">Детская викторина</string>
+    <string name="button_developing">В разработке</string>
+    <string name="repeat_password">Повторите пароль</string>
+    <string name="user">Пользователь</string>
+    <string name="finish">Закончить</string>
+    <string name="quiz_results">Результаты викторины</string>
+    <string name="result">результат</string>
+    <string name="correct_answers">Правильных ответов</string>
+    <string name="wrong_answers">Неправильных ответов</string>
+
+
+</resources>

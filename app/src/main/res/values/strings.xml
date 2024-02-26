@@ -1,28 +1,52 @@
 <resources>
     <string name="app_name">QUIZ</string>
-    <string name="start">Registration</string>
+    <string name="start" translatable="false">Sign up</string>
 
     <!--  My Strings  -->
-    <string name="HeadingReg">Welcome Onboard!!</string>
-    <string name="paragraphReg">Fill in the text fields</string>
-    <string name="titleActivitySecond">Сreating a password</string>
+    <string name="HeadingReg" translatable="false">Welcome Onboard!!</string>
+    <string name="paragraphReg" translatable="false">Fill in the text fields</string>
+    <string name="titleActivitySecond" translatable="false">Сreating a password</string>
+    <string name="question1" translatable="false">In winter and this one color</string>
 
     <!--  Input Text  -->
-    <string name="inputName">Enter your name</string>
-    <string name="inputEmail">Enter your email</string>
-    <string name="inputPassword">Enter password</string>
+    <string name="inputName" translatable="false">what is your name?</string>
+    <string name="inputEmail" translatable="false">what is your mail?</string>
+    <string name="inputPassword" translatable="false">Enter password</string>
+    <string name="repeat_password" translatable="false">Repeat password</string>
 
     <!--  Button  -->
-    <string name="textButton_next">Next</string>
-    <string name="textButton_back">Back</string>
-    <string name="textForButton_registration">Registration</string>
-    <string name="titleStartActivity">A quiz is a form of game or mind sport in which players attempt to answer questions correctly on one or several specific topics. Quizzes can be used as a brief assessment in education and similar fields to measure growth in knowledge, abilities, and skills, or simply as a hobby.</string>
-    <string name="welcome_back">Welcome Back!!</string>
-    <string name="buttonAutorization">Sign in</string>
-    <string name="don_t_have_an_account_sign_up">Don\'t have an account? Sign up</string>
-    <string name="forgot_password">Forgot password?</string>
-    <string name="registration">Registration</string>
-    <string name="authorization">Authorization</string>
-    <string name="question_1">Зимой и летом одним цветом</string>
+    <string name="textButton_next" translatable="false">Next</string>
+    <string name="textButton_back" translatable="false">Back</string>
+    <string name="textForButton_registration" translatable="false">Register</string>
+    <string name="titleStartActivity" translatable="false">A quiz is a form of game or mind sport in which players attempt to answer questions correctly on one or several specific topics.</string>
+    <string name="welcome_back" translatable="false">Welcome Back!!</string>
+    <string name="button_autorization" translatable="false">Sign in</string>
+    <string name="don_t_have_an_account_sign_up" translatable="false">Don\'t have an account? Sign up</string>
+    <string name="forgot_password" translatable="false">Forgot password?</string>
+    <string name="registration" translatable="false">Sign in</string>
+    <string name="authorization" translatable="false">Authorization</string>
+    <string name="already_have_an_account_sign_in" translatable="false">Already have an account?  Sign in </string>
+
+    <!-- fragment-->
+    <string name="hello_blank_fragment" translatable="false">Hello dynamic blank fragment</string>
+
+    <!--  Game activity  -->
+    <string name="option1" translatable="false">onswer 1</string>
+    <string name="option2" translatable="false">onswer 2</string>
+    <string name="option3" translatable="false">onswer 3</string>
+    <string name="option4" translatable="false">onswer 4</string>
+
+    <!-- fragment main menu -->
+    <string name="mainmenufragment" translatable="false">Welcome Back!!</string>
+    <string name="main_menu" translatable="false">Main menu</string>
+    <string name="children_s_quiz" translatable="false">Children\'s Quiz</string>
+    <string name="button_developing" translatable="false">In developing</string>
+    <string name="user" translatable="false">User: </string>
+    <string name="finish" translatable="false">Finish</string>
+    <string name="quiz_results" translatable="false">QUIZ results</string>
+    <string name="correct_answers" translatable="false">Correct answers:</string>
+    <string name="result" translatable="false">result</string>
+    <string name="wrong_answers" translatable="false">Wrong answers</string>
+
 
 </resources>
