@@ -56,7 +56,7 @@ class RegistrationFragment : Fragment() {
 
         binding.buttonNext.setOnClickListener {
             val name = binding.username.text.toString()
-            val email = binding.email.text.toString()
+//            val email = binding.email.text.toString()
             val password = binding.password.text.toString()
 
             val bundle = Bundle().apply {
@@ -66,8 +66,8 @@ class RegistrationFragment : Fragment() {
 
 
 
-            if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty()) {
-               User(name, email, password)
+            if (name.isNotEmpty() && password.isNotEmpty()) {
+               User(name, password)
 
                 parentFragmentManager.commit{
                     replace<MainMenuFragment>(containerViewId = R.id.fragment_container, args = bundle)

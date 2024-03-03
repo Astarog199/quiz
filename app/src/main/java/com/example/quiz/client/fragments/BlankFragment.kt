@@ -1,6 +1,9 @@
 package com.example.quiz.client.fragments
 
+import android.app.ActivityOptions
+import android.app.Dialog
 import android.os.Bundle
+import android.transition.TransitionInflater
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -35,6 +38,7 @@ class BlankFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
     }
 
     override fun onCreateView(
@@ -43,18 +47,21 @@ class BlankFragment : Fragment() {
     ): View {
         _binding = FragmentBlankBinding.inflate(inflater)
 
-        binding.buttonAuthorization.setOnClickListener {
+        val buttonAuthorization = binding.buttonAuthorization
+        val buttonRegistration = binding.buttonRegistration
 
+        buttonAuthorization.setOnClickListener {
             parentFragmentManager.commit {
                 replace<AutorizationFragment>(R.id.fragment_container)
                 addToBackStack(AutorizationFragment::class.simpleName)
             }
         }
-        binding.buttonRegistration.setOnClickListener {
 
+        buttonRegistration.setOnClickListener {
             parentFragmentManager.commit {
                 replace<RegistrationFragment>(R.id.fragment_container)
                 addToBackStack(RegistrationFragment::class.simpleName)
+                sharedElementEnterTransition = TransitionInflater.from(requireContext()).inflateTransition(R.transition.grid_transition)
             }
         }
         return binding.root

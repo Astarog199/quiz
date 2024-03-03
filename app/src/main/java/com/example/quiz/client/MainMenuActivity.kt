@@ -1,8 +1,11 @@
 package com.example.quiz.client
 
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.TextUtils.replace
+import android.transition.Slide
+import android.view.Gravity
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.example.quiz.R
@@ -15,6 +18,18 @@ class MainMenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityMainMenuBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        with(window){
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                enterTransition = Slide(Gravity.LEFT)
+                exitTransition = Slide(Gravity.RIGHT)
+            //  enterTransition = Explode()
+            //  exitTransition = Explode()
+            }
+
+
+        }
 
         supportFragmentManager.commit {
             replace<MainMenuFragment>(R.id.fragment_main_menu)

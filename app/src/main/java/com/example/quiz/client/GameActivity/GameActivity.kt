@@ -1,35 +1,43 @@
 package com.example.quiz.client.GameActivity
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.quiz.client.MainMenuActivity
 import com.example.quiz.databinding.ActivityGameBinding
 
 
 private var FLAG = false
 private var numberAnswear = 0
-var checkAnswear = mutableListOf(10)
-var result = 0
+private lateinit var quiz: QUIZ
+private var size: Int = 0
+private var  valueAnswear = mutableListOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 
 class GameActivity() : AppCompatActivity() {
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityGameBinding.inflate(layoutInflater)
+        val options = ActivityOptions.makeSceneTransitionAnimation(this)
         setContentView(binding.root)
 
-        val quiz: QUIZ = intent.getParcelableExtra("key")!!
+        quiz = intent.getParcelableExtra("key")!!
         val answear = quiz.answear
+        size = answear.size-1
 
         val radioGroup = binding.options
         val button = binding.buttonAnswer
 
-        checkAnswear.fill(0)
 
-
+        binding.close.setOnClickListener {
+            val intent = Intent(this, MainMenuActivity::class.java)
+            startActivity(intent)
+        }
 
         getOptionElement(answear, numberAnswear, binding)
+
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             when (checkedId) {
                 binding.option1.id -> checkAnswer(getTextAnswear(1, answear), answear.get(numberAnswear))
@@ -38,20 +46,24 @@ class GameActivity() : AppCompatActivity() {
                 binding.option4.id -> checkAnswer(getTextAnswear(4, answear), answear.get(numberAnswear))
             }
             button.setOnClickListener {
-                setCheckAnswear()
-                showText()
-                if (numberAnswear != 9){
-                    numberAnswear++
-                    getOptionElement(answear, numberAnswear, binding)
-                }else{
-//                    val res = quiz.getResult()
-                    val intent = Intent(this, ResultActivity::class.java)
-                    numberAnswear=0
-                    intent.putExtra("res", result.toString())
-                    intent.putExtra("res2", (10- result).toString())
-                    startActivity(intent)
+
+                if (radioGroup.checkedRadioButtonId != -1) {
+                    setCheckAnswear()
+                    showText()
+                    next(binding, radioGroup, options)
                 }
             }
+        }
+
+
+        animateAnswear(radioGroup)
+    }
+
+    private fun animateAnswear(radioGroup: RadioGroup) {
+        radioGroup.alpha = 0f
+        radioGroup.animate().apply {
+            duration = 5000
+            alpha(1f)
         }
     }
 
@@ -65,9 +77,9 @@ class GameActivity() : AppCompatActivity() {
 
     private fun showText() {
         if (FLAG){
-            Toast.makeText(this,"Правильный ответ $result", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Правильный ответ", Toast.LENGTH_SHORT).show()
         } else{
-            Toast.makeText(this,"Неравильный ответ $result", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this,"Неравильный ответ", Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -89,14 +101,37 @@ class GameActivity() : AppCompatActivity() {
 
     fun getResult(): Int {
         var res = 0
-        for (i in checkAnswear) {
-            if (checkAnswear[i] == 1) res++
+        for (i in valueAnswear) {
+            if (i == 1) res++
         }
         return res
     }
 
     fun setCheckAnswear() {
-        if (FLAG) result++
-//        if (FLAG) checkAnswear[numberAnswear] = 1
+        if (FLAG) valueAnswear[numberAnswear] = 1
+    }
+
+    /**
+     * Логика кнопки "next"
+     * если
+     */
+    fun next(
+        binding: ActivityGameBinding,
+        radioGroup: RadioGroup,
+        options: ActivityOptions
+    ) {
+        if (numberAnswear != size) {
+            numberAnswear++
+            getOptionElement(quiz.answear, numberAnswear, binding)
+            radioGroup.clearCheck()
+            animateAnswear(radioGroup)
+        } else {
+            val res = getResult()
+            val intent = Intent(this, ResultActivity::class.java)
+            numberAnswear = 0
+            intent.putExtra("res", res.toString())
+            intent.putExtra("res2", (10 - res).toString())
+            startActivity(intent, options.toBundle())
+        }
     }
 }

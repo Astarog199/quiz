@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="textMainStyle">
+    <style name="textMainStyle" >
         <item name="android:textSize">20sp</item>
         <item name="android:fontFamily"> "@font/poppins" </item>
     </style>
+    
+    <style name="CustomButtonAnimation">
+        <item name="android:background"> "@drawable/custom_ripple_effect" </item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+
+    </style>
+    
+    <style name="CustomButton">
+        <item name="android:fontStyle">@style/textMainStyle</item>
+    </style>
+
+    <style name="CustomTransition">
+        <item name="android:windowAnimationStyle">@style/CustomTransitionAnimation</item>
+    </style>
+
+    <style name="CustomTransitionAnimation">
+        <item name="android:windowExitAnimation">@anim/slide_two</item>
+        <item name="android:windowEnterAnimation">@anim/slide_one</item>
+    </style>
+
 </resources>

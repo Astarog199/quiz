@@ -7,17 +7,6 @@
     tools:context=".client.fragments.AutorizationFragment">
 
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/logo"
-        android:layout_width="120dp"
-        android:layout_height="200dp"
-        android:src="@drawable/banner"
-        android:layout_marginTop="30dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-
     <TextView
         android:id="@+id/textTitle"
         android:layout_width="wrap_content"
@@ -25,8 +14,8 @@
         android:text="@string/welcome_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        android:layout_marginTop="60dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="300dp"
         style="@style/textMainStyle"
         />
 
@@ -68,11 +57,6 @@
             android:inputType="textPassword"
             />
     </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
     <TextView
         android:id="@+id/text"

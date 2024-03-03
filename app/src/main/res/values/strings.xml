@@ -46,7 +46,8 @@
     <string name="quiz_results" translatable="false">QUIZ results</string>
     <string name="correct_answers" translatable="false">Correct answers:</string>
     <string name="result" translatable="false">result</string>
-    <string name="wrong_answers" translatable="false">Wrong answers</string>
+    <string name="wrong_answers" translatable="false">Wrong answers:</string>
+    <string name="logo" translatable="false">logo</string>
 
 
 </resources>

@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
+import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -18,8 +19,6 @@ import com.example.quiz.databinding.FragmentAutorizationBinding
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
-
-
 
 /**
  * A simple [Fragment] subclass.
@@ -59,9 +58,6 @@ class AutorizationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonNext.setOnClickListener {
-//            val bundle = Bundle().apply {
-//                putString("param1", binding.name.text.toString())
-//        }
             parentFragmentManager.commit {
                 replace<MainMenuFragment>(R.id.fragment_container)
                 addToBackStack(MainMenuFragment::class.simpleName)
@@ -72,7 +68,6 @@ class AutorizationFragment : Fragment() {
         val spannableString = SpannableStringBuilder(text)
         spannableString.setSpan(ForegroundColorSpan(Color.BLUE), text.length - 8, text.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
         binding.text2.text= spannableString
-
     }
 
     companion object {

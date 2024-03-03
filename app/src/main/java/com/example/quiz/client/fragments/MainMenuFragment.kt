@@ -1,12 +1,17 @@
 package com.example.quiz.client.fragments
 
 import android.annotation.SuppressLint
+import android.app.Dialog
 import android.content.Intent
 import android.os.Bundle
+import android.transition.Slide
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.example.quiz.MainActivity
+import com.example.quiz.R
 import com.example.quiz.client.GameActivity.ChildrenQUIZ
 import com.example.quiz.client.GameActivity.GameActivity
 import com.example.quiz.client.GameActivity.LogicQuiz
@@ -56,6 +61,12 @@ class MainMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.UserInformation.text= "User: $param1"
+
+
+        binding.close.setOnClickListener {
+            val intent = Intent(this.activity, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         binding.button.setOnClickListener {
             val answear = mutableMapOf<Number, List<String>>()

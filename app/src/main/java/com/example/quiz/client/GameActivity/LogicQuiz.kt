@@ -8,7 +8,6 @@ class LogicQuiz(override val answear: MutableMap<Number, List<String>>
 ) :QUIZ(answear), Parcelable {
 
     init {
-        checkAnswear.fill(0)
         answear[0] = listOf("Вопрос 1", "Ответ 1", "Ответ 2", "Ответ 3", "Ответ 4", "Ответ 1")
         answear[1] = listOf("Вопрос 2", "Ответ 1", "Ответ 2", "Ответ 3", "Ответ 4", "Ответ 1")
         answear[2] = listOf("Вопрос 3", "Ответ 1", "Ответ 2", "Ответ 3", "Ответ 4", "Ответ 1")

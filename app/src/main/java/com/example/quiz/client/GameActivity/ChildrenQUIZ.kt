@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 class ChildrenQUIZ(override val answear: MutableMap<Number, List<String>>) :QUIZ(answear), Parcelable  {
 
     init {
-        checkAnswear.fill(0)
+
         answear[0] = listOf(
             "Двое идут в город. а навстречу им тоже двое. Сколько всего человек идут в город",
             "4",
