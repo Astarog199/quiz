@@ -39,48 +39,32 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/lottie_layer_banner"
       android:layout_marginTop="60dp"
       android:layout_marginLeft="30dp"
       android:layout_marginRight="30dp"
       android:text="@string/correct_answers"
+      style="@style/textMainStyle"
     />
 
-  <TextView
-      android:id="@+id/resCorrect"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintStart_toEndOf="@+id/p_correct_answers"
-      app:layout_constraintTop_toBottomOf="@+id/lottie_layer_banner"
-      android:layout_marginTop="60dp"
-      android:layout_marginLeft="30dp"
-      android:layout_marginRight="30dp"
-      android:text="@string/result"
-      />
+
 
   <TextView
       android:id="@+id/p_wrong_answers"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintTop_toBottomOf="@+id/p_correct_answers"
       android:layout_marginTop="10dp"
       android:layout_marginLeft="30dp"
       android:layout_marginRight="30dp"
       android:text="@string/wrong_answers"
+      style="@style/textMainStyle"
       />
 
-  <TextView
-      android:id="@+id/resWrong"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:layout_constraintStart_toEndOf="@+id/p_wrong_answers"
-      app:layout_constraintTop_toBottomOf="@+id/p_correct_answers"
-      android:layout_marginTop="10dp"
-      android:layout_marginLeft="30dp"
-      android:layout_marginRight="30dp"
-      android:text="@string/result"
-      />
+
 
   <Button
       style="@style/textMainStyle"

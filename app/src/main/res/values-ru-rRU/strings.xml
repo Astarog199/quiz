@@ -24,10 +24,15 @@
     <string name="welcome_back">С возвращением</string>
     <string name="authorization" translatable="false">Авторизация</string>
     <string name="textForButton_registration">Зарегистрироваться</string>
+    <string name="don_t_have_an_account_sign_up">Нет аккаунта?</string>
     <string name="forgot_password">Забыли пароль?</string>
     <string name="paragraphReg">Заполните техтовые поля</string>
     <string name="button_autorization">Войти</string>
-    <string name="hello_blank_fragment">Динамический бланк</string>
+    <string name="already_have_an_account_sign_in">Уже есть учётная запись?</string>
+    <string name="option1">Вопрос</string>
+    <string name="option2">Вопрос</string>
+    <string name="option3">Вопрос</string>
+    <string name="option4">Вопрос</string>
     <string name="mainmenufragment">С возвращением</string>
     <string name="main_menu">Главное меню</string>
     <string name="children_s_quiz">Детская викторина</string>
@@ -41,4 +46,25 @@
     <string name="wrong_answers">Неправильных ответов</string>
 
 
+    <plurals name="number_of_correct_answers" translatable="false">
+        <item quantity="zero"   >%1$d правильных ответов</item>
+        <item quantity="one"    >%1$d правильный ответ</item>
+        <item quantity="two"    >%1$d правильных ответа</item>
+        <item quantity="few"    >%1$d правильных ответов</item>
+        <item quantity="many"   >%1$d правильных ответов</item>
+        <item quantity="other"  >%1$d правильных ответов</item>
+    </plurals>
+
+    <plurals name="number_of_wrong_answers" translatable="false">
+        <item quantity="zero"   >%1$d неправильных ответов</item>
+        <item quantity="one"    >%1$d неправильный ответ</item>
+        <item quantity="two"    >%1$d неправильных ответа</item>
+        <item quantity="few"    >%1$d неправильных ответов</item>
+        <item quantity="many"   >%1$d неправильных ответов</item>
+        <item quantity="other"  >%1$d неправильных ответов</item>
+    </plurals>
+    <string name="logo">логотип</string>
+    <string name="select_date_of_birth">Дата рождения</string>
+    <string name="select_time">Выберите время</string>
+    <string name="date_selection">Дата рождения</string>
 </resources>

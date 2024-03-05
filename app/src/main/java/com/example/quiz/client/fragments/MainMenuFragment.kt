@@ -61,6 +61,7 @@ class MainMenuFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.UserInformation.text= "User: $param1"
+        binding.UserInformation2.text= "DOB: $param2"
 
 
         binding.close.setOnClickListener {

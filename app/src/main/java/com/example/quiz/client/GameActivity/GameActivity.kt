@@ -8,21 +8,23 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quiz.client.MainMenuActivity
 import com.example.quiz.databinding.ActivityGameBinding
+import java.util.ArrayList
 
 
 private var FLAG = false
 private var numberAnswear = 0
 private lateinit var quiz: QUIZ
 private var size: Int = 0
-private var  valueAnswear = mutableListOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+private var valueAnswear: MutableList<Int> = mutableListOf()
 
 class GameActivity() : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityGameBinding.inflate(layoutInflater)
         val options = ActivityOptions.makeSceneTransitionAnimation(this)
         setContentView(binding.root)
-
+        valueAnswear = mutableListOf(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
         quiz = intent.getParcelableExtra("key")!!
         val answear = quiz.answear
         size = answear.size-1

@@ -46,7 +46,6 @@ class BlankFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentBlankBinding.inflate(inflater)
-
         val buttonAuthorization = binding.buttonAuthorization
         val buttonRegistration = binding.buttonRegistration
 

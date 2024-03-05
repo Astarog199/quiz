@@ -8,9 +8,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
+import com.example.quiz.MainActivity
 import com.example.quiz.R
 import com.example.quiz.client.User
 import com.example.quiz.databinding.FragmentRegistrationBinding
+import com.google.android.material.datepicker.CalendarConstraints
+import com.google.android.material.datepicker.MaterialDatePicker
+import com.google.android.material.snackbar.Snackbar
+import java.text.SimpleDateFormat
+import java.util.Calendar
+import java.util.Date
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,6 +35,8 @@ class RegistrationFragment : Fragment() {
     private var param2: String? = null
 
     private var _binding: FragmentRegistrationBinding? = null
+    private val dateFormat = SimpleDateFormat("dd-MM-yy")
+    val  calendar = Calendar.getInstance()
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -53,30 +62,54 @@ class RegistrationFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        lateinit var dob:String
 
-        binding.buttonNext.setOnClickListener {
+        val buttonNext = binding.buttonNext
+        val close = binding.close
+        val dateSelection = binding.dateSelection
+
+
+        buttonNext.setOnClickListener {
             val name = binding.username.text.toString()
-//            val email = binding.email.text.toString()
             val password = binding.password.text.toString()
+            val password2 = binding.password2.text.toString()
 
             val bundle = Bundle().apply {
                 putString("param1", name)
+                putString("param2", dob)
             }
 
-
-
-
-            if (name.isNotEmpty() && password.isNotEmpty()) {
+            if (name.isNotEmpty() && password.isNotEmpty() && password == password2) {
                User(name, password)
 
                 parentFragmentManager.commit{
                     replace<MainMenuFragment>(containerViewId = R.id.fragment_container, args = bundle)
                     addToBackStack(MainMenuFragment::class.java.simpleName)
                 }
-
-//                val intent = Intent(this.activity, MainMenuFragment::class.java)
-//                startActivity(intent)
             }
+        }
+
+        dateSelection.setOnClickListener {
+            val constraints = CalendarConstraints.Builder()
+                .setOpenAt(calendar.timeInMillis)
+                .build()
+
+            val dateDialog =MaterialDatePicker.Builder.datePicker()
+                .setCalendarConstraints(constraints)
+                .setTitleText(resources.getString(R.string.select_date_of_birth))
+                .build()
+
+            dateDialog.addOnPositiveButtonClickListener { timeInMills ->
+                calendar.timeInMillis = timeInMills
+                Snackbar.make(binding.dateSelection, dateFormat.format(calendar.time), Snackbar.LENGTH_SHORT).show()
+            }
+            dob = dateFormat.format(calendar.time)
+            dateDialog.show(childFragmentManager, "DatePicker")
+        }
+
+        close.setOnClickListener {
+            val intent = Intent(this.activity, MainActivity::class.java)
+            startActivity(intent)
         }
     }
 

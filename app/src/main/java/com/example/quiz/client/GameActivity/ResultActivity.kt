@@ -36,24 +36,17 @@ class ResultActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        with(window) {
+        val resultCorrectAnswear = intent?.getStringExtra("res")
+        val resultWrongAnswear = intent?.getStringExtra("res2")
 
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                enterTransition = Slide(Gravity.LEFT)
-                exitTransition = Slide(Gravity.RIGHT)
+//        binding.resCorrect.text = result
+//        binding.pWrongAnswers.text = result2
 
-//                enterTransition = Explode()
-//                exitTransition = Explode()
-            }
-        }
+        val countCorrectAnswear = resources.getQuantityString(R.plurals.number_of_correct_answers, resultCorrectAnswear!!.toInt(), resultCorrectAnswear.toInt())
+        binding.pCorrectAnswers.text = countCorrectAnswear
 
-        val result = intent?.getStringExtra("res")
-        val result2 = intent?.getStringExtra("res2")
-
-        binding.resCorrect.text = result
-        binding.resWrong.text = result2
-
-
+        val countWrongAnswear = resources.getQuantityString(R.plurals.number_of_wrong_answers, resultWrongAnswear!!.toInt(), resultWrongAnswear.toInt())
+        binding.pWrongAnswers.text = countWrongAnswear
 
         animationButton(buttonFinish)
         animationTitile(title)
