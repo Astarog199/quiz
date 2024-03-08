@@ -23,6 +23,15 @@
         android:src="@drawable/baseline_arrow_back_ios_24"
         />
 
+    <Button
+        android:id="@+id/show"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/H2"
+        android:text="show user"
+        />
     <TextView
         android:id="@+id/H2"
         android:layout_marginTop="300dp"
@@ -42,16 +51,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-
-        android:text="@string/user"
-        />
-    <TextView
-        android:id="@+id/UserInformation2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/UserInformation"
 
         android:text="@string/user"
         />

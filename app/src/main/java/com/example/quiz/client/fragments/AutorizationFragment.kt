@@ -5,20 +5,16 @@ import android.os.Bundle
 import android.text.SpannableStringBuilder
 import android.text.Spanned
 import android.text.style.ForegroundColorSpan
-import android.transition.TransitionInflater
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.example.quiz.R
+import com.example.quiz.Storage.Repository
 import com.example.quiz.databinding.FragmentAutorizationBinding
-
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 /**
  * A simple [Fragment] subclass.
@@ -26,19 +22,13 @@ private const val ARG_PARAM2 = "param2"
  * create an instance of this fragment.
  */
 class AutorizationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var email: String? = null
-    private var password: String? = null
+
 
     private var _binding: FragmentAutorizationBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            email = it.getString(ARG_PARAM1)
-            password = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -58,9 +48,11 @@ class AutorizationFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonNext.setOnClickListener {
-            parentFragmentManager.commit {
-                replace<MainMenuFragment>(R.id.fragment_container)
-                addToBackStack(MainMenuFragment::class.simpleName)
+            val name = binding.name.text.toString()
+            val password = binding.password.text.toString()
+
+            if (name.isNotEmpty() && password.isNotEmpty()){
+              autorization(name, password)
             }
         }
 
@@ -70,23 +62,21 @@ class AutorizationFragment : Fragment() {
         binding.text2.text= spannableString
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment AutorizationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            AutorizationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    /**
+     * метод авторизации
+     * если autorization == true создаётся экземпляр класса user ипользователь переходит в MainMenuActivity
+     * если autorization == false то пользователь видит сообщение "Пользователь не найден"
+     */
+    private fun autorization(name: String, password: String) {
+        val repository = Repository()
+        val res = repository.autorization(requireContext(), name, password)
+        if (res){
+            parentFragmentManager.commit {
+                replace<MainMenuFragment>(R.id.fragment_container)
+                addToBackStack(MainMenuFragment::class.simpleName)
             }
+        }else{
+            Toast.makeText(this.activity, "Пользователь не найден", Toast.LENGTH_SHORT).show()
+        }
     }
 }

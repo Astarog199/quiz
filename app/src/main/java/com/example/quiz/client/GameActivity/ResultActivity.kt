@@ -1,25 +1,15 @@
 package com.example.quiz.client.GameActivity
 
 import android.animation.AnimatorInflater
-import android.animation.ArgbEvaluator
 import android.animation.ObjectAnimator
-import android.animation.PropertyValuesHolder
 import android.content.Intent
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
-import android.transition.Slide
-import android.view.Gravity
-import android.view.View
-import android.view.animation.AccelerateDecelerateInterpolator
-import android.view.animation.AccelerateInterpolator
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.quiz.R
 import com.example.quiz.client.MainMenuActivity
 import com.example.quiz.databinding.ActivityResultBinding
-import kotlin.concurrent.thread
 
 
 class ResultActivity : AppCompatActivity() {
@@ -39,8 +29,6 @@ class ResultActivity : AppCompatActivity() {
         val resultCorrectAnswear = intent?.getStringExtra("res")
         val resultWrongAnswear = intent?.getStringExtra("res2")
 
-//        binding.resCorrect.text = result
-//        binding.pWrongAnswers.text = result2
 
         val countCorrectAnswear = resources.getQuantityString(R.plurals.number_of_correct_answers, resultCorrectAnswear!!.toInt(), resultCorrectAnswear.toInt())
         binding.pCorrectAnswers.text = countCorrectAnswear

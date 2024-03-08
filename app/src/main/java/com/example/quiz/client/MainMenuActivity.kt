@@ -1,5 +1,6 @@
 package com.example.quiz.client
 
+import android.content.Context
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,8 @@ import com.example.quiz.R
 import com.example.quiz.client.fragments.BlankFragment
 import com.example.quiz.client.fragments.MainMenuFragment
 import com.example.quiz.databinding.ActivityMainMenuBinding
+import java.io.FileOutputStream
+import java.io.IOException
 
 class MainMenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

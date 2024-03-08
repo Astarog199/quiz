@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.commit
 import androidx.fragment.app.replace
 import com.example.quiz.MainActivity
@@ -19,33 +20,15 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [RegistrationFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class RegistrationFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
+    lateinit var DOB: Date
     private var _binding: FragmentRegistrationBinding? = null
     private val dateFormat = SimpleDateFormat("dd-MM-yy")
     val  calendar = Calendar.getInstance()
     private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -74,18 +57,20 @@ class RegistrationFragment : Fragment() {
             val password = binding.password.text.toString()
             val password2 = binding.password2.text.toString()
 
-            val bundle = Bundle().apply {
-                putString("param1", name)
-                putString("param2", dob)
-            }
-
             if (name.isNotEmpty() && password.isNotEmpty() && password == password2) {
-               User(name, password)
+               User(name, password, DOB).userWrite(requireContext())
+
+                val bundle = Bundle().apply {
+                    putString("param1", name)
+                    putString("param2", dob)
+                }
 
                 parentFragmentManager.commit{
                     replace<MainMenuFragment>(containerViewId = R.id.fragment_container, args = bundle)
                     addToBackStack(MainMenuFragment::class.java.simpleName)
                 }
+            }else{
+                Toast.makeText(this.activity,"Заполните поля", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -100,10 +85,12 @@ class RegistrationFragment : Fragment() {
                 .build()
 
             dateDialog.addOnPositiveButtonClickListener { timeInMills ->
+                DOB = Date(timeInMills)
                 calendar.timeInMillis = timeInMills
                 Snackbar.make(binding.dateSelection, dateFormat.format(calendar.time), Snackbar.LENGTH_SHORT).show()
             }
             dob = dateFormat.format(calendar.time)
+
             dateDialog.show(childFragmentManager, "DatePicker")
         }
 
@@ -111,25 +98,5 @@ class RegistrationFragment : Fragment() {
             val intent = Intent(this.activity, MainActivity::class.java)
             startActivity(intent)
         }
-    }
-
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment RegistrationFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            RegistrationFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
     }
 }

@@ -10,7 +10,6 @@
 
     <!--  Input Text  -->
     <string name="inputName" translatable="false">what is your name?</string>
-    <string name="inputEmail" translatable="false">what is your mail?</string>
     <string name="inputPassword" translatable="false">Enter password</string>
     <string name="repeat_password" translatable="false">Repeat password</string>
 
